@@ -1,8 +1,8 @@
 ### Configuración kind
 
-1. Crear un cluster de kind:
+1. Crear un cluster de kind con configuración de puertos:
 ```bash
-kind create cluster --name go-server
+kind create cluster --name go-server --config kind-config.yaml
 ```
 
 2. Construir la imagen de Docker:
@@ -53,14 +53,6 @@ Revisar los detalles del servicio:
 ```bash
 kubectl get service -n go-server
 ```
-
-### Acceder al servicio
-
-Como kind no tiene un proveedor de load balancer, usa port forward:
-```bash
-kubectl port-forward -n go-server service/go-server-service 8080:8080
-```
-Luego accede en: http://localhost:8080/api
 
 ## Limpieza
 
