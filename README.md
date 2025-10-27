@@ -1,8 +1,6 @@
-## Despliegue en Kubernetes
+### Configuración kind
 
-### Para Usuarios de Kind
-
-1. Crear un clúster de kind:
+1. Crear un cluster de kind:
 ```bash
 kind create cluster --name go-server
 ```
@@ -34,12 +32,12 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 
-**O desplegar todo de una vez:**
+Desplegar todo de una vez:
 ```bash
 kubectl apply -f namespace.yaml -f deployment.yaml -f service.yaml
 ```
 
-### Verificar el Despliegue
+### Verificar el despliegue
 
 Revisar todos los recursos en el namespace:
 ```bash
@@ -56,9 +54,9 @@ Revisar los detalles del servicio:
 kubectl get service -n go-server
 ```
 
-### Acceder al Servicio
+### Acceder al servicio
 
-Como kind no tiene un proveedor de LoadBalancer, usa port-forward:
+Como kind no tiene un proveedor de load balancer, usa port forward:
 ```bash
 kubectl port-forward -n go-server service/go-server-service 8080:8080
 ```
@@ -76,7 +74,7 @@ O eliminar todo el namespace:
 kubectl delete namespace go-server
 ```
 
-Eliminar el clúster de kind:
+Eliminar el cluster de kind:
 ```bash
 kind delete cluster --name go-server
 ```
