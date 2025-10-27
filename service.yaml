@@ -7,6 +7,8 @@ metadata:
     app: go-server
 spec:
   type: LoadBalancer
+  externalIPs:
+  - 172.18.0.2  # kind node IP (may need adjustment)
   selector:
     app: go-server
   ports:
