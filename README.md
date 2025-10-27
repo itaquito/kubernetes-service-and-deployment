@@ -58,9 +58,8 @@ kubectl get service -n go-server
 
 Como kind no tiene un proveedor de load balancer, usa port forward:
 ```bash
-kubectl port-forward -n go-server service/go-server-service 8080:8080
+kubectl port-forward --address 0.0.0.0 -n go-server service/go-server-service 8080:8080
 ```
-Luego accede en: http://localhost:8080/api
 
 ## Limpieza
 
